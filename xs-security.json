@@ -1,0 +1,25 @@
+{
+    "xsappname": "sfsf-projman",
+    "tenate-mode": "dedicated",
+    "scopes": [
+      {
+        "name": "$XSAPPNAME.Admin",
+        "description": "Admin"
+      }
+    ],
+    "attributes": [],
+    "role-templates": [
+      {
+        "name": "Admin",
+        "description": "Project Administrator by Ward",
+        "scope-references": [
+          "$XSAPPNAME.Admin"
+        ],
+        "attribute-references": []
+      }
+    ],
+    "role-collections": [
+        "name": "sfsf_projman_Administrator"
+    ]
+  }
+  
