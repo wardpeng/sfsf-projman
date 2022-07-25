@@ -1,0 +1,79 @@
+{
+	"VCAP_SERVICES": {
+		"destination": [
+			{
+				"label": "destination",
+				"provider": null,
+				"plan": "lite",
+				"name": "sfsf-dest",
+				"tags": [
+					"destination",
+					"conn",
+					"connsvc"
+				],
+				"credentials": {
+                    "tenantmode": "dedicated",
+                    "clientid": "sb-clone950e42dea4e24dfe8f1025ab4d52e70b!b1249|destination-xsappname!b3",
+                    "credential-type": "binding-secret",
+                    "xsappname": "clone950e42dea4e24dfe8f1025ab4d52e70b!b1249|destination-xsappname!b3",
+                    "clientsecret": "cdb5e185-0896-4a64-9e88-f37a7b830517$7Tz5BXPM8uGdnShkmoTaaY1GxXtZ4tyK1xh5meKJ7Wk=",
+                    "uri": "https://destination-configuration.cfapps.cn40.platform.sapcloud.cn",
+                    "url": "https://btp-dev-e762rdp8.authentication.cn40.platform.sapcloud.cn",
+                    "uaadomain": "authentication.cn40.platform.sapcloud.cn",
+                    "instanceid": "950e42de-a4e2-4dfe-8f10-25ab4d52e70b",
+                    "verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvjz6my4r2bMPnrxHyrDV\nFhHyrz7Ft08hBUVsgaGpQPPglz0wJ4+93tQMheXZvL5oh0wMm8PI0dxTEtNXV4CO\n9pWEOtpVq+Jm3bGFDuByYHtguVz6r5Xd6fVt0tVT4uOvLcN8e9P4lsfsoXJIjqI7\nLrYVOqKwxrLzfk0kj1CrbLCMLJXw25GuNHE2ARLtjbrgEe4f56uU+HP0mhuU4tjV\nmS3Y8gB3f/HGRTxJ3QmqltCfvGFEq45Fj3tOjwVpt3SKz89bG9GWVZEQRByqtqe5\nMV/+BejfaCp13lhm5Im+Vn4vk0NIoB+5TA4HsgtvOMD9N/BVRIiaPRyHfXtfy0u3\n9QIDAQAB\n-----END PUBLIC KEY-----",
+                    "identityzone": "btp-dev-e762rdp8",
+                    "tenantid": "b2b9c400-9a2b-4a43-9431-c7269ef18a79"
+                  }
+			}
+		],
+		"xsuaa": [
+			{
+				"label": "xsuaa",
+				"provider": null,
+				"plan": "application",
+				"name": "sfsf-xsuaa",
+				"tags": [
+					"xsuaa"
+				],
+				"credentials": {
+                    "tenantmode": "shared",
+                    "sburl": "https://internal-xsuaa.authentication.cn40.platform.sapcloud.cn",
+                    "subaccountid": "b2b9c400-9a2b-4a43-9431-c7269ef18a79",
+                    "credential-type": "instance-secret",
+                    "clientid": "sb-na-b8c4b2af-72f9-4f6a-b723-26d91c11c804!t1249",
+                    "xsappname": "na-b8c4b2af-72f9-4f6a-b723-26d91c11c804!t1249",
+                    "clientsecret": "B05UEwvE3goB+efwEgiyDSifZTE=",
+                    "url": "https://btp-dev-e762rdp8.authentication.cn40.platform.sapcloud.cn",
+                    "uaadomain": "authentication.cn40.platform.sapcloud.cn",
+                    "verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvjz6my4r2bMPnrxHyrDV\nFhHyrz7Ft08hBUVsgaGpQPPglz0wJ4+93tQMheXZvL5oh0wMm8PI0dxTEtNXV4CO\n9pWEOtpVq+Jm3bGFDuByYHtguVz6r5Xd6fVt0tVT4uOvLcN8e9P4lsfsoXJIjqI7\nLrYVOqKwxrLzfk0kj1CrbLCMLJXw25GuNHE2ARLtjbrgEe4f56uU+HP0mhuU4tjV\nmS3Y8gB3f/HGRTxJ3QmqltCfvGFEq45Fj3tOjwVpt3SKz89bG9GWVZEQRByqtqe5\nMV/+BejfaCp13lhm5Im+Vn4vk0NIoB+5TA4HsgtvOMD9N/BVRIiaPRyHfXtfy0u3\n9QIDAQAB\n-----END PUBLIC KEY-----",
+                    "apiurl": "https://api.authentication.cn40.platform.sapcloud.cn",
+                    "identityzone": "btp-dev-e762rdp8",
+                    "identityzoneid": "b2b9c400-9a2b-4a43-9431-c7269ef18a79",
+                    "tenantid": "b2b9c400-9a2b-4a43-9431-c7269ef18a79",
+                    "zoneid": "b2b9c400-9a2b-4a43-9431-c7269ef18a79"
+                  }
+			}
+		],
+        "hana": [
+            {
+                "name": "sfsf-projman-db",
+                "tags": [
+                    "hana"
+                ],
+                "credentials":{
+                    "host": "f7ed2d68-eea7-49db-a6cd-db3db045ecae.hana.prod-cn40.hanacloud.sapcloud.cn",
+                    "port": "443",
+                    "driver": "com.sap.db.jdbc.Driver",
+                    "url": "jdbc:sap://f7ed2d68-eea7-49db-a6cd-db3db045ecae.hana.prod-cn40.hanacloud.sapcloud.cn:443?encrypt=true&validateCertificate=true&currentschema=9222B9EF58DD48C2B84F7AB9DEF2CDDD",
+                    "schema": "9222B9EF58DD48C2B84F7AB9DEF2CDDD",
+                    "hdi_user": "9222B9EF58DD48C2B84F7AB9DEF2CDDD_5PZK85U3RT6P6RUH1OBBZ38HP_DT",
+                    "hdi_password": "Ov88WXkD68_T_KaEY9MIhrN4fazA339HAesNGsVOxAHE05cElSMwF4HN6bivoghnmI7Y367DFev4w1ClYHfhJbE6jRYepJb7ZNqkYuwGWNmKdAOniAI9pVkr9vepsyhg",
+                    "user": "9222B9EF58DD48C2B84F7AB9DEF2CDDD_5PZK85U3RT6P6RUH1OBBZ38HP_RT",
+                    "password": "Uy7xnE_s2uSE1IzycWRARtrJvz9Lmilaea06pmCRtZcRlxp5HYBe4V_VavI8.z4qYHfkiOJZeCisQZl3xqx.t8edXgku1acAkZInjG0lCq4a7joDPY6jXehX2F_iBgNb",
+                    "certificate": "-----BEGIN CERTIFICATE-----\nMIIDrzCCApegAwIBAgIQCDvgVpBCRrGhdWrJWZHHSjANBgkqhkiG9w0BAQUFADBh\nMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3\nd3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD\nQTAeFw0wNjExMTAwMDAwMDBaFw0zMTExMTAwMDAwMDBaMGExCzAJBgNVBAYTAlVT\nMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5j\nb20xIDAeBgNVBAMTF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMIIBIjANBgkqhkiG\n9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4jvhEXLeqKTTo1eqUKKPC3eQyaKl7hLOllsB\nCSDMAZOnTjC3U/dDxGkAV53ijSLdhwZAAIEJzs4bg7/fzTtxRuLWZscFs3YnFo97\nnh6Vfe63SKMI2tavegw5BmV/Sl0fvBf4q77uKNd0f3p4mVmFaG5cIzJLv07A6Fpt\n43C/dxC//AH2hdmoRBBYMql1GNXRor5H4idq9Joz+EkIYIvUX7Q6hL+hqkpMfT7P\nT19sdl6gSzeRntwi5m3OFBqOasv+zbMUZBfHWymeMr/y7vrTC0LUq7dBMtoM1O/4\ngdW7jVg/tRvoSSiicNoxBN33shbyTApOB6jtSj1etX+jkMOvJwIDAQABo2MwYTAO\nBgNVHQ8BAf8EBAMCAYYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUA95QNVbR\nTLtm8KPiGxvDl7I90VUwHwYDVR0jBBgwFoAUA95QNVbRTLtm8KPiGxvDl7I90VUw\nDQYJKoZIhvcNAQEFBQADggEBAMucN6pIExIK+t1EnE9SsPTfrgT1eXkIoyQY/Esr\nhMAtudXH/vTBH1jLuG2cenTnmCmrEbXjcKChzUyImZOMkXDiqw8cvpOp/2PV5Adg\n06O/nVsJ8dWO41P0jmP6P6fbtGbfYmbW0W5BjfIttep3Sp+dWOIrWcBAI+0tKIJF\nPnlUkiaY4IBIqDfv8NZ5YBberOgOzW6sRBc4L0na4UU+Krk2U886UAb3LujEV0ls\nYSEY1QSteDwsOoBrp+uvFRTp2InBuThs4pFsiv9kuXclVzDAGySj4dzp30d8tbQk\nCAUw7C29C79Fv1C5qfPrmAESrciIxpg0X40KPMbp1ZWVbd4=\n-----END CERTIFICATE-----"
+                  }
+            }
+        ]
+	}
+}
