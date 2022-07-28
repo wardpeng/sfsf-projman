@@ -1,0 +1,73 @@
+ID: mta_test
+_schema-version: "3.1"
+version: 0.0.1
+
+parameters:
+  enable-parallel-deployments: true
+
+modules:
+  - name: mta_test-db
+    type: hdb
+    path: db
+    build-parameters:
+      ignore:
+        - default-*.json
+        - .env
+        - "*node_modules*"
+    parameters:
+      memory: 128M
+      disk-quota: 256M
+    requires:
+      - name: mta_test-uaa
+      - name: mta_test-hdi
+
+  - name: mta_test-srv
+    type: nodejs
+    path: srv
+    build-parameters:
+      ignore:
+        - default-*.json
+        - .env
+        - "*node_modules*"
+    parameters:
+      disk-quota: 512M
+      memory: 256M
+    provides:
+      - name: srv_api
+        properties:
+          url: ${default-url}
+    requires:
+      - name: mta_test-uaa
+      - name: mta_test-hdi
+
+  - name: mta_test-app
+    type: html5
+    path: app
+    build-parameters:
+      ignore:
+        - default-*.json
+        - .env
+        - "*node_modules*"
+    parameters:
+      disk-quota: 512M
+      memory: 256M
+    requires:
+      - name: mta_test-uaa
+      - name: srv_api
+        group: destinations
+        properties:
+          name: srv
+          url: ~{url}
+          forwardAuthToken: true
+
+resources:
+  - name: mta_test-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+  - name: mta_test-hdi
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: ${service-name}

@@ -1,0 +1,12 @@
+{
+    "name": "mta_test-db",
+    "engines": {
+        "node": "^14"
+    },
+    "dependencies": {
+        "@sap/hdi-deploy": "latest"
+    },
+    "scripts": {
+        "start": "node node_modules/@sap/hdi-deploy/deploy.js"
+    }
+}
