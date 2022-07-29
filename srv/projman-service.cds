@@ -21,7 +21,7 @@ service ProjectManager @(path : '/projman', requires: 'authenticated-user') {
 
     annotate Activity with @(requires: 'Admin');
 
-    @readonly
+    @readonly 
     entity SFSF_User       as
         select from UM_API.User {
             key userId,
