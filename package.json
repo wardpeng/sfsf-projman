@@ -11,10 +11,11 @@
     "@sap/xsenv": "^3.3.2",
     "@sap/xssec": "^3.2.13",
     "express": "^4",
-    "passport": "^0.6.0",
-    "hdb": "^0.18.3"
+    "hdb": "^0.18.3",
+    "passport": "^0.6.0"
   },
   "devDependencies": {
+    "@sap/ux-specification": "^1.96.17",
     "sqlite3": "^5.0.2"
   },
   "scripts": {
@@ -87,5 +88,8 @@
     "hana": {
       "deploy-format": "hdbtable"
     }
-  }
+  },
+  "sapux": [
+    "app/sfsf-projman"
+  ]
 }
