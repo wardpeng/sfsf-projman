@@ -14,6 +14,7 @@ modules:
       srv-url: ${default-url}
   parameters:
     buildpack: nodejs_buildpack
+    host: ${appname}
   build-parameters:
     builder: npm-ci
 - name: sfsf-projman-db-deployer
@@ -54,30 +55,30 @@ modules:
   build-parameters:
     no-source: true
 
-- name: sfsf-projman-app-content
-  type: com.sap.application.content
-  path: .
-  requires:
-    - name: sfsf-projman_html_repo_host
-      parameters:
-        content-target: true
-  build-parameters:
-    build-result: resources
-    requires:
-    - artifacts:
-      - sfsfprojmansfsfprojman.zip
-      name: sfsfprojmansfsfprojman
-      target-path: resources/
+# - name: sfsf-projman-app-content
+#   type: com.sap.application.content
+#   path: .
+#   requires:
+#     - name: sfsf-projman_html_repo_host
+#       parameters:
+#         content-target: true
+#   build-parameters:
+#     build-result: resources
+#     requires:
+#     - artifacts:
+#       - sfsfprojmansfsfprojman.zip
+#       name: sfsfprojmansfsfprojman
+#       target-path: resources/
 
-- name: sfsfprojmansfsfprojman
-  type: html5
-  path: app/sfsf-projman
-  build-parameters:
-    build-result: dist
-    builder: custom
-    commands:
-    - npm install
-    - npm run build:cf
+# - name: sfsfprojmansfsfprojman
+#   type: html5
+#   path: app/sfsf-projman
+#   build-parameters:
+#     build-result: dist
+#     builder: custom
+#     commands:
+#     - npm install
+#     - npm run build:cf
 
 
 resources:
@@ -90,9 +91,28 @@ resources:
     hdi-service-name: ${service-name}
 - name: sfsf-projman-destination-service
   type: org.cloudfoundry.managed-service
+  requires:
+    - name: srv-api
   parameters:
     config:
       HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          - Name: sfsf-projman-app-api
+            Description: Project Manager CAP service
+            Authentication: NoAuthentication
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+          existing_destinations_policy: update
       version: 1.0.0
     service: destination
     service-name: sfsf-projman-destination-service
@@ -111,7 +131,9 @@ resources:
     service-name: sfsf-projman-xsuaa-service
     service-plan: application
 parameters:
+  deploy_mode: html5-repo
   enable-parallel-deployments: true
+  appname: sfsf-projman-approuter
 build-parameters:
   before-all:
   - builder: custom
