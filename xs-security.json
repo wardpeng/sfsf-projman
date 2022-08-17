@@ -1,6 +1,6 @@
 {
     "xsappname": "sfsf-projman",
-    "tenate-mode": "dedicated",
+    "tenantMode": "dedicated",
     "description": "Security profile of Called application",
     "scopes": [
         {
@@ -34,7 +34,7 @@
         {
             "name": "sfsf_projman_Administrator",
             "description": "Administrative access",
-            "roll-template-references": [
+            "role-template-references": [
                 "$XSAPPNAME.Admin"
             ]
         }
