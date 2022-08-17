@@ -8,6 +8,7 @@ modules:
   path: gen/srv
   requires:
   - name: sfsf-projman-db
+  - name: uaa_sfsf-projman
   provides:
   - name: srv-api
     properties:
